@@ -1,5 +1,5 @@
 /*
-	Copyright (C) 2019 Minho Jo <whitestone8214@gmail.com>
+	Copyright (C) 2019-2020 Minho Jo <whitestone8214@gmail.com>
 	
 	This program is free software: you can redistribute it and/or modify
 	it under the terms of the GNU Lesser General Public License as published by
@@ -66,7 +66,7 @@ screener *screener_new() {
 }
 void screener_draw(screener *_screener, int x, int y, int color) {
 	if (_screener == NULL) return;
-	if ((x < 0) || (y < 0) || ((x * 4) * y) > _screener->nPixels) return;
+	if ((x < 0) || (y < 0) || (x >= _screener->width) || (y >= _screener->height)) return;
 	
 	((int *)_screener->pixels)[x + (_screener->width * y)] = color;
 }

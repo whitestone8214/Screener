@@ -1,5 +1,5 @@
 /*
-	Copyright (C) 2019 Minho Jo <whitestone8214@gmail.com>
+	Copyright (C) 2019-2020 Minho Jo <whitestone8214@gmail.com>
 	
 	This program is free software: you can redistribute it and/or modify
 	it under the terms of the GNU Lesser General Public License as published by

@@ -1,6 +1,6 @@
 Name: Screener
 Description: Linux framebuffer made easier
-Version: 0.0.1
+Version: 0.0.2
 Requires:
 Cflags:
 Libs: -lscreener
