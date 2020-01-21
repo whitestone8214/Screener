@@ -29,6 +29,9 @@
 
 #ifndef TURNED_ON_SCREENER
 #define TURNED_ON_SCREENER
+#define VERSION_SCREENER_MAJOR 0
+#define VERSION_SCREENER_MINOR 1
+#define VERSION_SCREENER_MICRO 0
 
 typedef struct screener screener;
 
@@ -44,8 +47,29 @@ struct screener {
 };
 
 
-screener *screener_new();
+/*
+	screener_new(): Create new Screener session
+	
+	- framebuffer: Path to framebuffer device (i.e. /dev/fb0)
+	- teletype: Path to teletype device (i.e. /dev/tty1)
+*/
+screener *screener_new(char *framebuffer, char *teletype);
+
+/*
+	screener_draw(): Draw a pixel
+	
+	- screener: Working Screener session
+	- x: X coordinate of a pixel
+	- y: Y coordinate of a pixel
+	- color: Color of a pixel (i.e. 0xff00ff00)
+*/
 void screener_draw(screener *screener, int x, int y, int color);
+
+/*
+	screener_dispose(): Quit Screener session
+	
+	- screener: Working Screener session
+*/
 void screener_dispose(screener *screener);
 
 #endif

@@ -21,17 +21,19 @@
 #include <screener.h>
 
 
-screener *screener_new() {
+screener *screener_new(char *framebuffer, char *teletype) {
 	// Allocate object
 	screener *_screener = (screener *)malloc(sizeof(screener));
 	if (_screener == NULL) return NULL;
+	if (framebuffer == NULL) {free(_screener); return NULL;}
+	if (teletype == NULL) {free(_screener); return NULL;}
 	
-	// Open /dev/fb0
-	_screener->framebuffer = open("/dev/fb0", O_RDWR);
+	// Open framebuffer
+	_screener->framebuffer = open(framebuffer, O_RDWR);
 	if (_screener->framebuffer == -1) goto failed_to_open_framebuffer;
 	
-	// Open /dev/tty0
-	_screener->teletype = open("/dev/tty1", O_RDWR);
+	// Open teletype
+	_screener->teletype = open(teletype, O_RDWR);
 	if (_screener->teletype == -1) goto failed_to_open_teletype;
 	
 	// Turn on graphics mode
